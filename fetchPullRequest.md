@@ -27,5 +27,5 @@ git checkout pr-123
 ```
 
 See also:
-[1] https://stackoverflow.com/questions/15397059/how-do-i-get-a-specific-pull-request-on-my-machine#32447815
+[1] https://stackoverflow.com/questions/15397059/how-do-i-get-a-specific-pull-request-on-my-machine#32447815 <br>
 [2] https://stackoverflow.com/questions/27567846/how-can-i-check-out-a-github-pull-request-with-git
