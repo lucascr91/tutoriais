@@ -69,3 +69,11 @@ Add commit to existing PR:
 git commit -m "These changes are in response to PR comments"
 git push -f origin HEAD
 ```
+
+#### Commits:
+
+List commits:
+
+```
+git log
+```
