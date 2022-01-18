@@ -36,6 +36,11 @@ git branch -a
 ```
 The current branch is the starred one
 
+To merge a branch into master, go to the master branch and type:
+
+```bash
+git merge feature
+```
 #### PR:
 
 Add commit to existing PR:
