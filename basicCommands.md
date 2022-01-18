@@ -29,6 +29,26 @@ If you want to create a new branch and enter into it right away type:
 git checkout -b feature
 ```
 
+Delete a branch:
+
+To delete a merged branch locally:
+
+````bash
+git branch -d <branch-name>
+```
+
+To delete an unmerged branch locally:
+
+````bash
+git branch -D <branch-name>
+```
+
+To delete a branch remotely:
+
+```bash
+git push --delete <remote name> <branch name>
+```
+
 Check branches:
 
 ```bash
