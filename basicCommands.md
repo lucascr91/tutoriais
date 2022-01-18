@@ -10,19 +10,33 @@ git status
 
 #### Branches:
 
-Check current branch:
+Create a branch:
+
+```
+git branch feature
+```
+where ``feature` is the name of the new branch
+
+The above command creates the new branch but keep the user in the master branch. To switch to branch "feature":
 
 ```bash
-git branch
+git checkout feature
 ```
 
+If you want to create a new branch and enter into it right away type:
+
+```bash
+git checkout -b feature
+```
+
+Check branches:
+
+```bash
+git branch -a
+```
 The current branch is the starred one
 
-Switch to branch "hello":
-
-```bash
-git checkout hello
-```
+#### PR:
 
 Add commit to existing PR:
 
