@@ -15,7 +15,7 @@ Create a branch:
 ```
 git branch feature
 ```
-where ``feature` is the name of the new branch
+where `feature` is the name of the new branch
 
 The above command creates the new branch but keep the user in the master branch. To switch to branch "feature":
 
@@ -33,13 +33,13 @@ Delete a branch:
 
 To delete a merged branch locally:
 
-````bash
+```bash
 git branch -d <branch-name>
 ```
 
 To delete an unmerged branch locally:
 
-````bash
+```bash
 git branch -D <branch-name>
 ```
 
