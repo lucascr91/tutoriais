@@ -1,3 +1,7 @@
+<a href="https://github.com/pedroocava">
+    <img src="https://komarev.com/ghpvc/?username=lucascr91&color=24292e&style=flat&label=Profile+Views" alt="Gitub Views Profile Count" />
+  </a>
+
 <table>
 <tr>
     <td align="center" style="padding=0;width=48%;">
