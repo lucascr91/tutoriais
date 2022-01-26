@@ -4,10 +4,10 @@
 
 <table>
 <tr>
-    <td align="center" style="padding=0;width=49%;">
+    <td align="center" style="padding=0;width=48%;">
       <img align="center" style="padding=0;" src="https://github-readme-stats.vercel.app/api?username=lucascr91&theme=graywhite&count_private=true&hide_border=true" />
     </td>
-    <td align="center" style="padding=0;width=49%;">
+    <td align="center" style="padding=0;width=48%;">
         <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=lucascr91&" alt="lucascr91" />
     </td>
 </tr>
