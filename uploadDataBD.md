@@ -1,8 +1,22 @@
-## Subindo dados para a BD
+- [Subindo dados para a BD](#subindo-dados-para-a-bd)
+  * [Extração dos dados](#extra--o-dos-dados)
+  * [Upload](#upload)
+    + [Table.create](#tablecreate)
+      - [Alterações locais](#altera--es-locais)
+      - [Alterações no GCloud](#altera--es-no-gcloud)
+    + [Table.update_columns](#tableupdate-columns)
+      - [Alterações locais](#altera--es-locais-1)
+    + [Table.publish](#tablepublish)
+- [TL;DR:](#tl-dr-)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+# Subindo dados para a BD
 
 Neste tutorial, vamos subir um conjunto de dados para o *Data Lake* da **BD**. Nosso objetivo será discriminar o passo a passo e prover detalhes do que acontece por "trás das cenas", para além da mera aplicação das funções existentes no pacote da **BD**. Para este exemplo, vamos usar os dados de inflação do IPCA. Esse dados já existem atualmente em dev e em prod. Por essa razão, para fins de ilustração, vamos criar tabelas e datasets como novos nome e depois apága-los. Esse tutorial está dividido em mais duas seções. Na seção seguinte apresentamos o código contendo a extração e limpeza dos dados do IPCA e a seção seguinte mostra o passo a passo do *load* dos dados no *Data Lake* da BD. Nosso foco maior será sobre o ciclo de upload, por isso a primeira seção será breve e o código de extração e limpeza não será explicado, o leitor interessado pode consultar o código fonte no arquivo `tutorial.py`.
 
-#### Extração dos dados
+## Extração dos dados
 
 Todo o processo de ETL apresentado neste tutorial será feito a partir de funções do pacote em python da **BD** e de funções definidas em um módulo local chamado `tutorial.py`. Para extrair e limpar os dados rode o seguinte script no seu computador:
 
