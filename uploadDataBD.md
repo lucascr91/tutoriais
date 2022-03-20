@@ -244,5 +244,11 @@ tb.publish(if_exists='replace')
 
 # TL;DR:
 
-A tabela 1 resume a função de cada um dos métodos que vimos acima e quais arquivos eles alteram:
+A tabela a seguir resume a função de cada um dos métodos que vimos acima e quais arquivos eles alteram:
+
+| Método         | Descrição                                                                                                           | Alteração local                                                                  | Alteração GCloud                                                                                                               |
+|----------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| create         | Cria arquivos no GCS na pasta basedosdados-dev/staging e respectiva tabela no BQ                                    | table_config.yaml  publish.sql schema-staging.json README.md dataset_config.yaml | tutorial_ipca_stating/tutorial_cat_brasil/tutorial_cat_brasil.csv  tutorial_ipca/tutorial_cat_brasil / tutorial_cat_brasil.csv |
+| update_columns | Faz update de arquivos de configuração locais                                                                       | table_config.yaml publish.sql                                                    |                                                                -                                                               |
+| publish        | Usa table_config.yamls e publish.sql e tutorial_ipca_staging.tutorial_cat_brasilpara criar uma VIEW da tabela no BQ |                                         -                                        | Tabela BQ: basedosdados-dev.tutorial_ipca.tutorial_cat_brasil                                                                  |
 
