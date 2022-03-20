@@ -13,7 +13,7 @@
 
 
 
-Neste tutorial, vamos subir um conjunto de dados para o *Data Lake* da **BD**. Nosso objetivo será discriminar o passo a passo e prover detalhes do que acontece por "trás das cenas", para além da mera aplicação das funções existentes no pacote da `basedosdados`. Para este exemplo, vamos usar os dados de inflação do IPCA. Esse dados já existem atualmente em dev e em prod. Por essa razão, para fins de ilustração, vamos criar tabelas e datasets como novos nome e depois apága-los. Esse tutorial está dividido em mais duas seções. Na seção seguinte apresentamos o código contendo a extração e limpeza dos dados do IPCA e a seção seguinte mostra o passo a passo do *load* dos dados no *Data Lake* da BD. Nosso foco maior será sobre o ciclo de upload, por isso a primeira seção será breve e o código de extração e limpeza não será explicado, o leitor interessado pode consultar o código fonte no arquivo `tutorial.py`.
+Neste tutorial, vamos subir um conjunto de dados para o *Data Lake* da **BD**. Nosso objetivo será discriminar o passo a passo e prover detalhes do que acontece por "trás das cenas", para além da mera aplicação das funções existentes no pacote `basedosdados`. Para este exemplo, vamos usar os dados de inflação do IPCA. Esse dados já existem atualmente em dev e em prod. Por essa razão, para fins de ilustração, vamos criar tabelas e datasets como novos nomes e depois apagá-los. Esse tutorial está dividido em mais duas seções. Na seção seguinte apresentamos o código contendo a extração e limpeza dos dados do IPCA e a seção seguinte mostra o passo a passo do *load* dos dados no *Data Lake* da BD. Nosso foco maior será sobre o ciclo de upload, por isso a primeira seção será breve e o código de extração e limpeza não será explicado, o leitor interessado pode consultar o código fonte no arquivo `tutorial.py`.
 
 ## Extração dos dados
 
@@ -76,7 +76,7 @@ Isso finaliza a extração e limpeza dos dados. Na próxima seção vamos detalh
 
 ## Upload
 
-O upload dos dados locais para o *Data Lake* da **BD** faz uso de 4 métodos definidos para a classe `Table` no pacote em python. Os métodos são `Table.create`, `Table.upload`, `Tabla.update_metadata` e `Table.publish`. A seguir, vamos detalhar cada um desses métodos, em enfoque em quais aquivos eles alteram localmente e na nuvem.
+O upload dos dados locais para o *Data Lake* da **BD** faz uso de 3 métodos definidos para a classe `Table` no pacote em python. Os métodos são `Table.create`, `Table.update_columns` e `Table.publish`. A seguir, vamos detalhar cada um desses métodos, com enfoque em quais aquivos eles alteram localmente e na nuvem.
 
 ### Table.create
 
@@ -99,7 +99,7 @@ tb.create(path="/tmp/data/output/ipca/categoria_brasil.csv")
 
 #### Alterações locais
 
-Podemos ver os arquivos alterados localmente por esse comando usando a CLI `find` do GNU/Linux:
+Podemos ver os arquivos alterados localmente pelo `create` usando a CLI `find` do GNU/Linux:
 
 ```bash
 find . -type f -mmin -2
@@ -155,14 +155,13 @@ FROM basedosdados-dev.tutorial_ipca_staging.tutorial_cat_brasil AS t
 Três fatos são importantes notar na `VIEW` acima:
 
 1. A `VIEW` é criada a partir de um *dataset* chamado `tutorial_ipca_staging`. Esse *dataset* for criado pelo método `Table.create`
-2. A `VIEW` cria um novo *dataset* chamado `tutorial_ipca`.
+2. A `VIEW` cria uma nova tabela em um *dataset* chamado `tutorial_ipca`.
 3. Todas as variáveis são criadas como STRING
 
-O arquivo `schema-staging.json` replica o conteúdo do `yaml`, cisto anteriormente, no formato `json`. A seguir, replicamos parte do conteúdo desse arquivo:
+O arquivo `schema-staging.json` replica o conteúdo do `yaml`, visto anteriormente, no formato `json`. A seguir, replicamos parte do conteúdo desse arquivo:
 
 ```json
 [{"name": "ano", "bigquery_type": null, "description": null, "temporal_coverage": null, "covered_by_dictionary": null, "directory_column": {"dataset_id": null, "table_id": null, "column_name": null}, "measurement_unit": null, "has_sensitive_data": null, "observations": null, "is_in_staging": null, "is_partition": null, "type": "STRING"}, {"name": "mes", "bigquery_type": null, "description": null, "temporal_coverage": null, "covered_by_dictionary": null, "directory_column": {"dataset_id": null, "table_id": null, "column_name": null}, "measurement_unit": null, "has_sensitive_data": null, "observations": null, "is_in_staging": null, "is_partition": null, "type": "STRING"},
-...
 ```
 Por fim, um arquivo `README` também foi criado. Esse arquivo tem a função de explicar como os dados foram capturados e indicar ao usuário que ele pode encontrar mais detalhes na pasta `code`. No nosso caso, esta pasta está vazia.
 
@@ -187,11 +186,11 @@ que retorna:
 gs://basedosdados-dev/staging/tutorial_ipca/tutorial_cat_brasil/categoria_brasil.csv
 ```
 
-Além dessa alteração no GCS, mais duas alterações foram feitas no BQ. Em primeiro lugar, em `basedosdados-dev` foram criados dois *datasets* chamados de `tutorial_ipca_staging` e `tutorial_ipca`. Ambos os *datasets* contém o conteúdo do arquivo `tutorial_cat_brasil.csv`. A diferença é que `tutorial_ipca_staging.tutorial_cat_brasil` está baseada nos dados brutos, enquanto a `tutorial_ipca.tutorial_cat_brasil` é uma `VIEW` criada pelo arquivo `publish.sql`, visto anteriormente.
+Além dessa alteração no GCS, mais duas alterações foram feitas no BQ. Em primeiro lugar, em `basedosdados-dev` foram criados dois *datasets* chamados de `tutorial_ipca_staging` e `tutorial_ipca`. O *dataset* `tutorial_ipca_staging.tutorial_cat_brasil` contém a tabela com os dados brutos do arquivo `categoria_brasil.csv`. Enquanto o *dataset* `tutorial_ipca` irá, futuramente, receber a VIEW criada pelo `publish.sql`, visto anteriormente.
 
 ### Table.update_columns
 
-Com os *datasets* e os arquivos de configuração criados, podemos agora fazer um *update* dos metadados. Existe mais de uma forma de fazer isso, mas para fins vamos usar o método `update_columns` que faz o update dos metadados a partir das informações disponíveis em umm *Google Sheet*:
+Com os *datasets* e os arquivos de configuração criados, podemos agora fazer um *update* dos metadados. Existe mais de uma forma de fazer isso, mas para fins de facilitar a visualização, vamos usar o método `update_columns` que faz o update dos metadados a partir das informações disponíveis em umm *Google Sheet*:
 
 ```python
 tb.update_columns('https://docs.google.com/spreadsheets/d/1oLkb_Y_pT4WqfkUEyxdA68wpOv2Evlyu/edit#gid=1496168147')
