@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-18T21:14:27.953Z" agent="5.0 (X11)" etag="-xjMEdFuO449U5-MO2a6" version="20.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-18T21:17:51.308Z" agent="5.0 (X11)" etag="_AaY102UDYmhVVlTIr6e" version="20.0.1" type="github">
   <diagram id="fASk20W7oNHX5MO4hxgJ" name="Page-1">
     <mxGraphModel dx="1422" dy="1920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -72,6 +72,12 @@
         </mxCell>
         <mxCell id="zlQGFl6wUQW1Q2_RHlpJ-28" value="Modern Data Stack" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;opacity=50;" vertex="1" parent="1">
           <mxGeometry x="20" y="-30" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zlQGFl6wUQW1Q2_RHlpJ-29" value="DATA ENGINEER" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=14;opacity=50;labelPosition=center;align=center;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="45" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zlQGFl6wUQW1Q2_RHlpJ-30" value="DATA ANALYST" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=14;opacity=50;labelPosition=center;align=center;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="200" y="600" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
