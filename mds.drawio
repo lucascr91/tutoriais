@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-18T21:20:32.875Z" agent="5.0 (X11)" etag="WrGP98Oa7USBMKpnrrXP" version="20.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-18T21:20:39.494Z" agent="5.0 (X11)" etag="Q2chDV-11jFvayPimDzC" version="20.0.1" type="github">
   <diagram id="fASk20W7oNHX5MO4hxgJ" name="Page-1">
     <mxGraphModel dx="1422" dy="1920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -32,7 +32,7 @@
           <mxGeometry x="560" y="140" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zlQGFl6wUQW1Q2_RHlpJ-16" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=40;strokeWidth=1;opacity=50;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="590" y="60" width="230" height="280" as="geometry" />
+          <mxGeometry x="590" y="60" width="220" height="270" as="geometry" />
         </mxCell>
         <mxCell id="zlQGFl6wUQW1Q2_RHlpJ-19" value="EXTRACT AND LOAD" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=40;opacity=50;" vertex="1" parent="1">
           <mxGeometry x="90" y="130" width="60" height="30" as="geometry" />
